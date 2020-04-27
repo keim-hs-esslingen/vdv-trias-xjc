@@ -51,18 +51,24 @@ Choose one of these files, put it into your *trias-xsd* directory and name it e.
 While being in the *trias-xsd* directory,execute the following command:
 
 ```
-xjc -d generated -npa -b bindings.xml Trias.xsd
+xjc -d generated -npa -no-header -b bindings.xml Trias.xsd
 ```
 
 The `-npa` flag changes the generation behaviour for package level annotations. Please consult the *xjc* man page for details about it.
 
-## 6. Remove generation timestamps (optional for git, svn, ... users)
+The `-no-header` flag suppresses the generation of a header comment in each file. This header comment includes a generation timestamp that makes the generated file less compatible with SCM tools like git. Use this argument to prevent the generation of such comments (including their timestamps).
 
-Once you generated the java classes and put them in a code repo, commited and pushed them, you might realize afterwards that you need to tweak the generated classes a bit, e.g. by editing the *bindings.xml* file or the `xjc` command arguments. This will cause you to regenerate the files, put the new version into you repo and so forth. This might even be necessary a couple times until the generated classes fit you needs perfectly.
+If you want to have the header included, but not the timestamp, omit this argument in the `xjc` command and apply the next step after you code was generated with headers (and timestamps).
 
-However, everytime you generate classes with `xcj` a generation timestamp is put into every generated code file, making all of them appear as modified to SCM tools, even if the rest of the file hasn't changed. Most of the time though, you only want to commit those files that have changed their content due to the modifications done to *bindings.xml*.
+## 6. (optional) Remove generation timestamps
 
-To make this possible, the following command can be used to traverse the directory of generated classes and remove the generation timestamp from every *\*.java* file found in there. On windows this command will probably look different.
+If you want to include the generation headers in your generated code files but also commit them to an SCM tool, you most probably still want to get rid of the generation timestamp in your files.
+
+The reason you don't want the timestamps is that they are put into every file upon generation. If you change the generation parameters, either by tweaking the `xjc` command line args or the bindings customizations in *binding.xml*, you will get new java files of which you probably only want to commit those to your repo, that have actually changed in content.
+
+But since they all contain a generation timestamp, all of them appear as modified to the SCM, making it a pain to track changes along their timeline.
+
+To remove the timestamps from the headers, use the following command. It traverses the directory of generated java files and extracts the lines matching the timestamp pattern. This command is only available for linux users. If you have one for Windows, feel free to contribute.
 
 ```
 find ./generated -name "*.java" -exec sed -i -e '/\/\/ Generated on: [0-9\.]* at [0-9:]* .*$/d' {} \;
