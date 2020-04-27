@@ -58,7 +58,7 @@ The `-npa` flag changes the generation behaviour for package level annotations. 
 
 The `-no-header` flag suppresses the generation of a header comment in each file. This header comment includes a generation timestamp that makes the generated file less compatible with SCM tools like git. Use this argument to prevent the generation of such comments (including their timestamps).
 
-If you want to have the header included, but not the timestamp, omit this argument in the `xjc` command and apply the next step after you code was generated with headers (and timestamps).
+If you want to have the header included, but not the timestamp, omit this argument in the `xjc` command and apply the next step after your code was generated with headers (and timestamps).
 
 ## 6. (optional) Remove generation timestamps
 
