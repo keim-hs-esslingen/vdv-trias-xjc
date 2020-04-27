@@ -41,8 +41,8 @@ For the class generation to work, you will need external [JAXB-Binding-Customiza
 
 In this repository you will find two external binding customization files, of which you can choose one that fits your situation.
 
-- *bindings.xml*: The bare minimum to make the code generation work.
-- *bindings-java-time.xml*: Extended customizations that make XML date-time formats be converted to java.time-Classes instead of the generally used XMLGregorianCalendar class.
+- ***bindings.xml:*** The bare minimum to make the code generation work.
+- ***bindings-java-time.xml:*** Extended customizations that make XML date-time formats be converted to java.time-Classes instead of the generally used XMLGregorianCalendar class.
 
 Choose one of these files, put it into your *trias-xsd* directory and name it e.g. *"bindings.xml"*.
 
