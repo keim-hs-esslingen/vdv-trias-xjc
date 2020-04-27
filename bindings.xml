@@ -1,0 +1,13 @@
+<jaxb:bindings version="1.0" 
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:extensionBindingPrefixes="xjc">
+
+    <jaxb:bindings schemaLocation="siri-1.4/datex2/DATEXIISchema_1_0_1_0.xsd">
+        <jaxb:bindings node="//xsd:complexType[@name='Comment']">
+            <jaxb:class name="DatexComment"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>
