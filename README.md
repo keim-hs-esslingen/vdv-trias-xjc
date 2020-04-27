@@ -1,4 +1,4 @@
-# vdv-trias-xjc
+# Guide for Java code generation from VDV Trias XML schema
 
 This is a small guide on how to use the `xjc` tool to generate Java classes from the VDV Trias XML schema. It applies to the Trias schema v1.2, which can be downloaded from the VDV-Website here: https://www.vdv.de/trias-xsd-v1.2.zipx
 
