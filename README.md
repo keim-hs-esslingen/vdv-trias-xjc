@@ -29,6 +29,7 @@ cd trias-xsd
 
 Make a target folder inside this directory.
 This is where the java classes will be put into.
+Omitting this step will let the `xjc` command fail.
 
 ```
 mkdir generated
