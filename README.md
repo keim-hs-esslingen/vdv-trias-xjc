@@ -54,8 +54,7 @@ While being in the *trias-xsd* directory,execute the following command:
 xjc -d generated -npa -b bindings.xml Trias.xsd
 ```
 
-The `-npa` flags are needed for JAXB unmarshallers to correctly deserialize XML.
-
+The `-npa` flag changes the generation behaviour for package level annotations. Please consult the *xjc* man page for details about it.
 
 ## 6. Remove generation timestamps (optional for git, svn, ... users)
 
